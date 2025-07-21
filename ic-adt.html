@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tiered Price Calculator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    label { display: block; margin: 8px 0; }
+    #total { font-weight: bold; margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+
+  <h2>Select Workshops</h2>
+  <form>
+    <label><input type="checkbox" name="workshop" onchange="calculatePrice()"> Workshop 1</label>
+    <label><input type="checkbox" name="workshop" onchange="calculatePrice()"> Workshop 2</label>
+    <label><input type="checkbox" name="workshop" onchange="calculatePrice()"> Workshop 3</label>
+    <label><input type="checkbox" name="workshop" onchange="calculatePrice()"> Workshop 4</label>
+
+    <p id="total">Total Price: ₹0</p>
+  </form>
+
+  <script>
+    function calculatePrice() {
+      const checkboxes = document.querySelectorAll('input[name="workshop"]:checked');
+      const count = checkboxes.length;
+      let price = 0;
+
+      switch (count) {
+        case 1:
+          price = 500;
+          break;
+        case 2:
+          price = 800;
+          break;
+        case 3:
+          price = 1000;
+          break;
+        case 4:
+          price = 1200;
+          break;
+        default:
+          price = 0;
+      }
+
+      document.getElementById("total").innerText = "Total Price: ₹" + price;
+    }
+  </script>
+
+</body>
+</html>
